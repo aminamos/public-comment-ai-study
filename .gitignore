@@ -1,1 +1,7 @@
 .wrangler/
+.env
+.env.*
+.dev.vars
+*.pem
+*.key
+.anyapi/
