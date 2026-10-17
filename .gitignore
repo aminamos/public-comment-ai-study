@@ -5,3 +5,4 @@
 *.pem
 *.key
 .anyapi/
+email-to-pangram.txt
