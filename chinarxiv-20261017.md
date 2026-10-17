@@ -19,3 +19,6 @@ Direct access: HTTP 403. Fresh temporary Cloudflare Worker proxy (deleted afterw
 
 ## Retry (2026-10-17, fifth)
 Direct access: HTTP 403. Fresh temporary Cloudflare Worker proxy (deleted afterward) tested 202604.00001, 202605.00042, 202606.00100, and 202512.00243: every PDF download still returns HTTP 403, 4,729 bytes, 系统正在维护中 ("system under maintenance"). Completed tracks untouched; no rescoring, no paid submission. Spend remains $0 / $500.
+
+## Check (2026-10-17, sixth)
+Direct abstract and home pages: HTTP 403. Temporary Cloudflare Worker proxy (deleted afterward): 202606.00100 download still HTTP 403, 4,729 bytes, 系统正在维护中 ("system under maintenance"); one request returned a proxy error before reaching the origin. No change. Completed tracks untouched. Spend remains $0 / $500.
