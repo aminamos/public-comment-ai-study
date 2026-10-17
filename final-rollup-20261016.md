@@ -40,3 +40,8 @@ Dashboard at expansion start: $1,023.05 spent, $4,165.47 balance.
 - NGO reports ($500): 11 reports (MSF, UNICEF, ICRC, IRC, Save the Children, WHO) scored whole — 11/11 Human, max fraction_ai 0.024. Spend $73.80 (availability-bound, not credit-bound).
 - ChinaXiv ($500): 55 valid 2026-Q2 papers enumerated; host then returned 403 for all requests from this host. 0 scored, $0 spent; ID list saved for a later retry.
 Estimated remaining Pangram credit after expansion: ~$170 (dashboard balance minus expansion spend).
+
+## Ordinances, NGO extension, ChinaXiv retry (2026-10-17)
+- Laws ordinance slice (first slice): 18 enacted ordinances (CA, CO, FL, GA, MN, OR, PA, TX, WI) scored whole — 18/18 Human. Laws total in D1: 274 (256 federal + 18 local). Laws spend $1,150.25 / $1,200.
+- NGO extended to 18 reports: 17 Human, 1 Mixed (WHO A79_16, fraction_ai 0.269). NGO spend $135.10 / $500.
+- ChinaXiv third retry: download subsystem still returns 403 "system under maintenance" via both direct and Cloudflare-edge paths. 0 scored, $0 spent; 55-ID list retained.

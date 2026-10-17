@@ -10,3 +10,6 @@ Scored: 0 papers. Spend $0 / $500 cap (budget check not reached; no paid submiss
 
 ## Retry (2026-10-17, later)
 Direct access from this host: HTTP 403. A second temporary Cloudflare Worker proxy (deleted afterward) was tested against 202604.00001, 202605.00010, and 202606.00020: abstract pages load, PDF download still returns HTTP 403, 4,729 bytes, page text 系统正在维护中 ("system under maintenance"). One older ID (202510.00075) no longer exposes a download link at all. Blocker unchanged and concrete: ChinaXiv's download subsystem is in maintenance; whole-paper scoring cannot start. Spend remains $0 / $500.
+
+## Retry (2026-10-17, third)
+Direct: HTTP 403. Fresh temporary Cloudflare Worker proxy (deleted afterward): abstract page loads and exposes a download UUID, but download still returns HTTP 403, 4,729 bytes, 系统正在维护中 ("system under maintenance"). Blocker unchanged. Spend remains $0 / $500.
