@@ -8,6 +8,9 @@ Caveat: AI detection is probabilistic, not proof; a flag means the text statisti
 - `final-rollup-20261016.md` — final report (coverage, closeout, scored results, spend, method limits)
 - `per-study-table.csv` — per-study scored counts (AI / Mixed / Human, % flagged)
 - `pangram-executive-summary.png` — one-page executive summary
+- `chart-by-corpus.png` — share flagged AI+Mixed by Pangram 4, by corpus (all tracks)
+- `chart-peer-review.png` — ICLR peer reviews flagged AI+Mixed, before vs after ChatGPT
+- Companion-track reports: `chinarxiv-20261017.md`, `sovietrxiv-20261017.md` (1976–77 translated baseline, 3.8% of 26), `arxiv-expansion-20261017.md`, `peer-expansion-20261017.md`, `laws-phase1-20261016.md`, `mn-laws-20261017.md`, `ngo-reports-20261017.md`, `wikipedia-afc-20261017.md`, `federal-bill-pipeline.md`
 
 ## Data
 Full comment-level data is in Cloudflare D1 (`minntelligence-research-db`) and R2 (`minntelligence-research`, one prefix per study), so every score links back to its verbatim comment and source document. Study page: https://minntelligence.fyi/research/public-comment-ai-2026/
