@@ -30,3 +30,13 @@ Internal ledger: county $580.65 / $2,300; federal $174.00; peer review $94.90 / 
 
 ## Method limits
 Verbatim extraction only; an LLM proposes boundaries and a machine verifier rejects non-verbatim text. Staff summaries, form letters, OCR error, the >=50-word floor, and obtainable-corpus bias (urban/PDF-publishing bodies) all limit inference. Flagged != AI-written.
+
+## Expansion (2026-10-17, after local-government corpora were exhausted)
+Dashboard at expansion start: $1,023.05 spent, $4,165.47 balance.
+- Laws (cap raised to $1,200): 256 federal public laws total scored whole — 255 Human, 1 Mixed, 0 AI. Spend $1,118.05. Two over-cap omnibus laws deferred; ordinance slice still collection-bound.
+- arXiv (cap $2,250): expanded to n=300 whole papers — Human 158, Mixed 133, AI 9 (47.3% flagged, mostly Mixed). Spend $2,001.05 total.
+- Peer review (cap $600): 2,269 ICLR reviews total — pre-ChatGPT 0/1,135 flagged (0.0%), post-ChatGPT 142/1,134 flagged (12.5%). Spend $572.65.
+- Wikipedia AfC ($500): 3,330 Draft-namespace drafts scored (3,271 with prediction) — AI 620, Mixed 405, Human 2,246 (31.3% flagged; highest of any track). Most AfC drafts are under the 50-word floor and stored unscored. Spend $477.90.
+- NGO reports ($500): 11 reports (MSF, UNICEF, ICRC, IRC, Save the Children, WHO) scored whole — 11/11 Human, max fraction_ai 0.024. Spend $73.80 (availability-bound, not credit-bound).
+- ChinaXiv ($500): 55 valid 2026-Q2 papers enumerated; host then returned 403 for all requests from this host. 0 scored, $0 spent; ID list saved for a later retry.
+Estimated remaining Pangram credit after expansion: ~$170 (dashboard balance minus expansion spend).
