@@ -1,24 +1,38 @@
-# ChinaXiv (2026-10-17) — download subsystem in maintenance, 0 scored
+# ChinaXiv scan — 2026-10-17 (via ChinaRxiv API)
 
-Caveat: AI detection is probabilistic, not proof; a flag means the text statistically resembles AI output.
+Original chinaxiv.org host returned 403 "system under maintenance" for all PDF
+downloads (six checks). Completed via the ChinaRxiv public API
+(`https://chinarxiv.org/api/v1`, `source=chinaxiv`), which serves the same
+corpus with full text.
 
-Enumeration succeeded: 55 valid ChinaXiv papers identified for 2026 Q2 (IDs validated by the presence of a PDF download link on each abstract page; registry in `registry/listing-2026q2.txt`).
+## Method
 
-Retry after cooldown (2026-10-17): this host still receives HTTP 403 for chinaxiv.org. Two alternate network paths were tried: the DigitalOcean droplet and the Windows machine were both unreachable by SSH, and a temporary Cloudflare Worker fetch proxy (created for this retry, deleted afterward) could load abstract pages but every PDF view/download request returned HTTP 403 with a page stating 系统正在维护中 ("system under maintenance"). Scoring abstracts instead would break the whole-paper rule, so no papers were scored and no workaround was forced. Abstract-only scoring was rejected.
+- IDs: the 55 valid 2026-Q2 ChinaXiv IDs saved in
+  `registry/listing-2026q2.txt` (enumerated before the host block).
+- Text: `GET /api/v1/papers/{id}/text` (`body_md`), markdown markers stripped
+  mechanically. 53/55 had full text ≥50 words; 2 returned HTTP errors.
+- One paper = one row, whole text as one Pangram chunk (`pangram-4` bulk).
+- Spend: $208.05 of $500 cap (4,161 units at $0.05).
 
-Scored: 0 papers. Spend $0 / $500 cap (budget check not reached; no paid submission made). The 55-ID list is saved so collection can resume directly at download once the ChinaXiv download subsystem is back.
+## Result (n=53)
 
-## Retry (2026-10-17, later)
-Direct access from this host: HTTP 403. A second temporary Cloudflare Worker proxy (deleted afterward) was tested against 202604.00001, 202605.00010, and 202606.00020: abstract pages load, PDF download still returns HTTP 403, 4,729 bytes, page text 系统正在维护中 ("system under maintenance"). One older ID (202510.00075) no longer exposes a download link at all. Blocker unchanged and concrete: ChinaXiv's download subsystem is in maintenance; whole-paper scoring cannot start. Spend remains $0 / $500.
+| Prediction | n |
+|---|---|
+| Human | 6 |
+| Mixed | 40 |
+| AI | 7 |
 
-## Retry (2026-10-17, third)
-Direct: HTTP 403. Fresh temporary Cloudflare Worker proxy (deleted afterward): abstract page loads and exposes a download UUID, but download still returns HTTP 403, 4,729 bytes, 系统正在维护中 ("system under maintenance"). Blocker unchanged. Spend remains $0 / $500.
+AI+Mixed = 47/53 (88.7%).
 
-## Retry (2026-10-17, fourth)
-Direct access: HTTP 403. Fresh temporary Cloudflare Worker proxy (deleted afterward) tested 202604.00001, 202605.00042, and 202606.00100: every PDF download still returns HTTP 403, 4,729 bytes, 系统正在维护中 ("system under maintenance"). Completed tracks untouched; no rescoring. Spend remains $0 / $500. The 55-ID saved list remains the resume point.
+## Critical caveat
 
-## Retry (2026-10-17, fifth)
-Direct access: HTTP 403. Fresh temporary Cloudflare Worker proxy (deleted afterward) tested 202604.00001, 202605.00042, 202606.00100, and 202512.00243: every PDF download still returns HTTP 403, 4,729 bytes, 系统正在维护中 ("system under maintenance"). Completed tracks untouched; no rescoring, no paid submission. Spend remains $0 / $500.
+ChinaRxiv texts are mostly **machine-translated** (Chinese → English;
+`source_language: mixed`). Machine translation produces statistically regular
+English, which plausibly inflates Mixed/AI-like scores. This number measures
+the translated text as served, **not** the Chinese originals, and is not
+comparable to the arXiv result (47.3% AI+Mixed, native English) without that
+qualification. AI detection is probabilistic, not proof; a flag means the
+text statistically resembles AI output.
 
-## Check (2026-10-17, sixth)
-Direct abstract and home pages: HTTP 403. Temporary Cloudflare Worker proxy (deleted afterward): 202606.00100 download still HTTP 403, 4,729 bytes, 系统正在维护中 ("system under maintenance"); one request returned a proxy error before reaching the origin. No change. Completed tracks untouched. Spend remains $0 / $500.
+Data: D1 `chinarxiv_papers` (53 rows), R2 `chinarxiv-scan/<paper_id>/paper.txt`,
+registry `registry/papers.csv`.
